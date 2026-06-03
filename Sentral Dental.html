@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Sentral Dental Clinic | KL Dental Implant & Braces Center</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --bg:#f7f6f3;
+    --white:#ffffff;
+    --dark:#0f1720;
+    --text:#5d6470;
+    --gold:#c6a76a;
+    --soft:#efe7da;
+    --line:#e6e1d8;
+    --shadow:0 20px 60px rgba(15,23,32,0.08);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg);
+    color:var(--dark);
+    overflow-x:hidden;
+}
+
+img{
+    width:100%;
+    display:block;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:min(1180px,90%);
+    margin:auto;
+}
+
+section{
+    padding:110px 0;
+}
+
+h1,h2,h3,h4{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:600;
+    line-height:1;
+}
+
+p{
+    color:var(--text);
+    line-height:1.8;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:16px 30px;
+    border-radius:999px;
+    font-weight:600;
+    transition:0.4s;
+    cursor:pointer;
+}
+
+.btn-primary{
+    background:var(--gold);
+    color:white;
+    box-shadow:0 15px 35px rgba(198,167,106,0.35);
+}
+
+.btn-primary:hover{
+    transform:translateY(-4px);
+}
+
+.btn-outline{
+    border:1px solid rgba(255,255,255,0.25);
+    color:white;
+    backdrop-filter:blur(10px);
+}
+
+.btn-outline:hover{
+    background:white;
+    color:black;
+}
+
+.navbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:999;
+    padding:22px 0;
+    transition:0.4s;
+}
+
+.navbar.scrolled{
+    background:rgba(255,255,255,0.85);
+    backdrop-filter:blur(18px);
+    box-shadow:0 10px 30px rgba(0,0,0,0.05);
+}
+
+.nav-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-family:'Cormorant Garamond',serif;
+    font-size:2rem;
+    font-weight:700;
+    letter-spacing:0.5px;
+}
+
+.logo span{
+    color:var(--gold);
+}
+
+.nav-links{
+    display:flex;
+    gap:40px;
+}
+
+.nav-links a{
+    font-size:0.95rem;
+    font-weight:500;
+    color:#2f3743;
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+    color:var(--gold);
+}
+
+.hero{
+    min-height:100vh;
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    background:
+    linear-gradient(to right, rgba(10,15,20,0.85), rgba(10,15,20,0.4)),
+    url('https://images.unsplash.com/photo-1629909615184-74f495363b67?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+}
+
+.hero::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at top right, rgba(198,167,106,0.35), transparent 35%);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:720px;
+    color:white;
+}
+
+.hero-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 18px;
+    border-radius:999px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.1);
+    margin-bottom:28px;
+    backdrop-filter:blur(10px);
+    font-size:0.92rem;
+}
+
+.hero h1{
+    font-size:5.7rem;
+    line-height:0.92;
+    margin-bottom:28px;
+}
+
+.hero p{
+    color:rgba(255,255,255,0.82);
+    font-size:1.08rem;
+    max-width:620px;
+    margin-bottom:38px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+}
+
+.floating-card{
+    position:absolute;
+    right:7%;
+    bottom:10%;
+    background:rgba(255,255,255,0.92);
+    backdrop-filter:blur(18px);
+    padding:28px;
+    border-radius:28px;
+    width:320px;
+    box-shadow:var(--shadow);
+    animation:float 5s ease-in-out infinite;
+}
+
+.floating-card h3{
+    font-size:2rem;
+    margin-bottom:12px;
+}
+
+.floating-card p{
+    margin-bottom:18px;
+}
+
+.rating{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.rating span{
+    color:var(--gold);
+    font-size:1.2rem;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-12px);
+    }
+}
+
+.section-title{
+    margin-bottom:70px;
+    text-align:center;
+}
+
+.section-title span{
+    color:var(--gold);
+    font-weight:600;
+    letter-spacing:2px;
+    font-size:0.82rem;
+}
+
+.section-title h2{
+    font-size:4rem;
+    margin-top:18px;
+}
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:80px;
+    align-items:center;
+}
+
+.about-image{
+    position:relative;
+}
+
+.about-image img{
+    border-radius:34px;
+    box-shadow:var(--shadow);
+}
+
+.about-box{
+    position:absolute;
+    bottom:-30px;
+    right:-20px;
+    background:white;
+    border-radius:24px;
+    padding:24px;
+    width:230px;
+    box-shadow:var(--shadow);
+}
+
+.about-box h4{
+    font-size:2.8rem;
+    color:var(--gold);
+}
+
+.about-content h2{
+    font-size:4rem;
+    margin-bottom:26px;
+}
+
+.about-content p{
+    margin-bottom:24px;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+    margin-top:60px;
+}
+
+.stat-card{
+    background:white;
+    padding:40px;
+    border-radius:28px;
+    text-align:center;
+    box-shadow:var(--shadow);
+    transition:0.4s;
+}
+
+.stat-card:hover{
+    transform:translateY(-8px);
+}
+
+.stat-card h3{
+    font-size:3rem;
+    color:var(--gold);
+    margin-bottom:12px;
+}
+
+.services{
+    background:#fcfbf8;
+}
+
+.service-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+}
+
+.service-card{
+    background:white;
+    padding:45px 35px;
+    border-radius:30px;
+    transition:0.4s;
+    box-shadow:0 10px 35px rgba(0,0,0,0.04);
+    border:1px solid transparent;
+}
+
+.service-card:hover{
+    transform:translateY(-10px);
+    border-color:rgba(198,167,106,0.3);
+}
+
+.service-icon{
+    width:72px;
+    height:72px;
+    border-radius:22px;
+    background:rgba(198,167,106,0.12);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:2rem;
+    margin-bottom:28px;
+}
+
+.service-card h3{
+    font-size:2rem;
+    margin-bottom:18px;
+}
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.gallery-grid img{
+    height:380px;
+    object-fit:cover;
+    border-radius:28px;
+    transition:0.5s;
+}
+
+.gallery-grid img:hover{
+    transform:scale(1.03);
+}
+
+.testimonials{
+    background:linear-gradient(to bottom,#f9f7f2,#f2eee7);
+}
+
+.testimonial-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+}
+
+.testimonial-card{
+    background:white;
+    padding:38px;
+    border-radius:30px;
+    box-shadow:var(--shadow);
+}
+
+.quote{
+    font-size:2rem;
+    color:var(--gold);
+    margin-bottom:18px;
+}
+
+.testimonial-card p{
+    margin-bottom:26px;
+}
+
+.user{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.user img{
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.user h5{
+    font-size:1rem;
+    margin-bottom:4px;
+}
+
+.cta{
+    position:relative;
+    overflow:hidden;
+}
+
+.cta-box{
+    background:
+    linear-gradient(rgba(15,23,32,0.85), rgba(15,23,32,0.85)),
+    url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1400&auto=format&fit=crop') center/cover;
+    border-radius:40px;
+    padding:90px;
+    text-align:center;
+    color:white;
+}
+
+.cta-box h2{
+    font-size:4.5rem;
+    margin-bottom:20px;
+}
+
+.cta-box p{
+    color:rgba(255,255,255,0.8);
+    max-width:700px;
+    margin:auto;
+    margin-bottom:35px;
+}
+
+.footer{
+    padding:80px 0 40px;
+    background:#10151d;
+    color:white;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1fr;
+    gap:50px;
+}
+
+.footer h3{
+    font-size:2rem;
+    margin-bottom:20px;
+}
+
+.footer p,
+.footer a{
+    color:rgba(255,255,255,0.7);
+}
+
+.footer-links{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+.copy{
+    margin-top:60px;
+    padding-top:30px;
+    border-top:1px solid rgba(255,255,255,0.08);
+    text-align:center;
+    color:rgba(255,255,255,0.5);
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(40px);
+    transition:1s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+@media(max-width:1000px){
+
+    .hero h1{
+        font-size:4.3rem;
+    }
+
+    .about-grid,
+    .service-grid,
+    .testimonial-grid,
+    .gallery-grid,
+    .stats,
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .floating-card{
+        position:relative;
+        right:auto;
+        bottom:auto;
+        margin-top:40px;
+        width:100%;
+    }
+
+    .cta-box{
+        padding:60px 30px;
+    }
+
+    .cta-box h2{
+        font-size:3rem;
+    }
+
+    .section-title h2,
+    .about-content h2{
+        font-size:3rem;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+}
+
+@media(max-width:640px){
+
+    section{
+        padding:85px 0;
+    }
+
+    .hero{
+        padding-top:130px;
+    }
+
+    .hero h1{
+        font-size:3.4rem;
+    }
+
+    .section-title h2,
+    .about-content h2{
+        font-size:2.5rem;
+    }
+
+    .cta-box h2{
+        font-size:2.4rem;
+    }
+
+    .btn{
+        width:100%;
+        justify-content:center;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+}
+
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container nav-inner">
+        <div class="logo">Sentral <span>Dental</span></div>
+
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#services">Treatments</a>
+            <a href="#gallery">Clinic</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="hero-content reveal">
+
+            <div class="hero-tag">
+                ✨ KL Dental Implant & Braces Center
+            </div>
+
+            <h1>
+                Where Beautiful Smiles Meet Gentle Care.
+            </h1>
+
+            <p>
+                Premium modern dental experience in Kuala Lumpur with trusted dentists, advanced treatments, and a calming environment designed for your comfort from consultation to smile transformation.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-primary">
+                    Book Consultation
+                </a>
+
+                <a href="#" class="btn btn-outline">
+                    Explore Treatments
+                </a>
+            </div>
+
+        </div>
+
+        <div class="floating-card">
+            <h3>5.0 ★</h3>
+            <p>
+                Trusted by over 2,251 happy patients with exceptional reviews for braces, implants, scaling, polishing, and gentle dental care.
+            </p>
+
+            <div class="rating">
+                <span>★★★★★</span>
+                <small>Top Rated Dental Clinic in KL</small>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="about">
+
+    <div class="container">
+
+        <div class="about-grid">
+
+            <div class="about-image reveal">
+                <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=1200&auto=format&fit=crop">
+
+                <div class="about-box">
+                    <h4>3+ Years</h4>
+                    <p>Loyal returning patients who trust Sentral Dental Clinic for long-term care.</p>
+                </div>
+            </div>
+
+            <div class="about-content reveal">
+
+                <span style="color:var(--gold);font-weight:600;letter-spacing:2px;">ABOUT THE CLINIC</span>
+
+                <h2>
+                    A Modern Dental Experience Designed Around Comfort.
+                </h2>
+
+                <p>
+                    Located at Sentral Suites, Brickfields Kuala Lumpur, Sentral Dental Clinic delivers premium dental treatments in a warm and calming environment. From braces and implants to scaling and extractions, every treatment is handled with precision, transparency, and patient comfort in mind.
+                </p>
+
+                <p>
+                    Patients consistently praise the clinic for its friendly team, informative consultations, gentle dentists, and smooth treatment experience — making dental visits feel less stressful and more reassuring.
+                </p>
+
+                <a href="#" class="btn btn-primary">
+                    Discover Our Clinic
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="stats">
+
+            <div class="stat-card reveal">
+                <h3>2,251+</h3>
+                <p>Verified Reviews</p>
+            </div>
+
+            <div class="stat-card reveal">
+                <h3>5.0</h3>
+                <p>Google Rating</p>
+            </div>
+
+            <div class="stat-card reveal">
+                <h3>9AM</h3>
+                <p>Daily Opening Hours</p>
+            </div>
+
+            <div class="stat-card reveal">
+                <h3>KL</h3>
+                <p>Prime Brickfields Location</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="services" id="services">
+
+    <div class="container">
+
+        <div class="section-title reveal">
+            <span>PREMIUM TREATMENTS</span>
+            <h2>Dental Care Tailored For Every Smile</h2>
+        </div>
+
+        <div class="service-grid">
+
+            <div class="service-card reveal">
+                <div class="service-icon">🦷</div>
+                <h3>Dental Implants</h3>
+                <p>
+                    Restore your smile confidently with advanced implant solutions designed for comfort, precision, and long-term durability.
+                </p>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="service-icon">😁</div>
+                <h3>Braces & Alignment</h3>
+                <p>
+                    Personalized orthodontic treatments that help create straighter smiles with modern and comfortable techniques.
+                </p>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="service-icon">✨</div>
+                <h3>Scaling & Polishing</h3>
+                <p>
+                    Gentle cleaning procedures to maintain healthy gums, fresh breath, and brighter teeth in a relaxing environment.
+                </p>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="service-icon">🩺</div>
+                <h3>Tooth Extraction</h3>
+                <p>
+                    Smooth and carefully handled extractions performed with patient comfort and safety as the highest priority.
+                </p>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="service-icon">📸</div>
+                <h3>Dental X-Ray</h3>
+                <p>
+                    Accurate diagnostics and treatment planning supported by modern imaging technology and detailed consultations.
+                </p>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="service-icon">💎</div>
+                <h3>Smile Consultation</h3>
+                <p>
+                    Get professional advice tailored to your dental goals and discover the best treatment journey for your smile.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="gallery">
+
+    <div class="container">
+
+        <div class="section-title reveal">
+            <span>CLINIC EXPERIENCE</span>
+            <h2>Elegant, Calm & Patient-Focused Environment</h2>
+        </div>
+
+        <div class="gallery-grid">
+
+            <img class="reveal" src="https://images.unsplash.com/photo-1625134673337-519d4d10b313?q=80&w=1200&auto=format&fit=crop">
+
+            <img class="reveal" src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?q=80&w=1200&auto=format&fit=crop">
+
+            <img class="reveal" src="https://images.unsplash.com/photo-1588776814546-daab30f310ce?q=80&w=1200&auto=format&fit=crop">
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="testimonials" id="reviews">
+
+    <div class="container">
+
+        <div class="section-title reveal">
+            <span>PATIENT STORIES</span>
+            <h2>Trusted By Thousands Of Happy Patients</h2>
+        </div>
+
+        <div class="testimonial-grid">
+
+            <div class="testimonial-card reveal">
+
+                <div class="quote">“</div>
+
+                <p>
+                    I have been a satisfied loyal patient of Sentral Dental Clinic for over 3 years now. The experience has always been excellent and professional.
+                </p>
+
+                <div class="user">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg">
+                    <div>
+                        <h5>Ben Teh</h5>
+                        <small>Local Guide</small>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="testimonial-card reveal">
+
+                <div class="quote">“</div>
+
+                <p>
+                    The nurses were very friendly and helpful. Dr Kent was gentle and very informative. Happy with the treatment here.
+                </p>
+
+                <div class="user">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg">
+                    <div>
+                        <h5>Sarah</h5>
+                        <small>Scaling Treatment</small>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="testimonial-card reveal">
+
+                <div class="quote">“</div>
+
+                <p>
+                    The whole extraction process went smoothly. The doctors and clinic staff were incredibly helpful and reassuring throughout.
+                </p>
+
+                <div class="user">
+                    <img src="https://randomuser.me/api/portraits/women/65.jpg">
+                    <div>
+                        <h5>Rawdah Beltagy</h5>
+                        <small>Tooth Extraction</small>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="cta">
+
+    <div class="container">
+
+        <div class="cta-box reveal">
+
+            <h2>
+                Your Smile Deserves Premium Care.
+            </h2>
+
+            <p>
+                Experience gentle dentistry, modern treatments, and a trusted clinic environment designed to make every visit comfortable and reassuring.
+            </p>
+
+            <a href="#" class="btn btn-primary">
+                Schedule Your Appointment
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer class="footer" id="contact">
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div>
+                <h3>Sentral Dental Clinic</h3>
+                <p>
+                    KL Dental Implant & Braces Center located at Sentral Suites Shopping Street, Brickfields Kuala Lumpur.
+                </p>
+            </div>
+
+            <div>
+                <h3>Contact</h3>
+
+                <div class="footer-links">
+                    <a href="#">011-1861 6368</a>
+                    <a href="#">wa.me</a>
+                    <a href="#">Open Daily 9AM</a>
+                </div>
+            </div>
+
+            <div>
+                <h3>Location</h3>
+
+                <div class="footer-links">
+                    <a href="#">
+                        1st Floor, Sentral Suites Shopping Street,
+                        Jalan Tun Sambanthan,
+                        Brickfields KL
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="copy">
+            © 2026 Sentral Dental Clinic. Premium Dental Experience in Kuala Lumpur.
+        </div>
+
+    </div>
+
+</footer>
+
+<script>
+
+const navbar = document.querySelector('.navbar');
+
+window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+const reveals = document.querySelectorAll('.reveal');
+
+function revealOnScroll(){
+    reveals.forEach((el)=>{
+        const windowHeight = window.innerHeight;
+        const revealTop = el.getBoundingClientRect().top;
+
+        if(revealTop < windowHeight - 100){
+            el.classList.add('active');
+        }
+    });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll();
+
+</script>
+
+</body>
+</html>
